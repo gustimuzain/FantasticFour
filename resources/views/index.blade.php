@@ -9,6 +9,10 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link rel="stylesheet" href="inter/css/main.css">
         <link rel="stylesheet" href="inter/css/responsive.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
         <header>
@@ -49,22 +53,50 @@
                             <div class="ml-5 coloumn-dp">
                                 <div>
                                     <div><p>Tanggal Mulai</p></div>
-                                    <div><i class="far fa-calendar-alt"></i></div>
+                                    <!-- <div><i class="far fa-calendar-alt"></i></div> -->
+                                    <input id="startDate" width="200" />
                                 </div>
                             </div>
                             <div class="ml-5 coloumn-dp">
                                 <div>
                                     <div><p>Tanggal Selesai</p></div>
-                                    <div><i class="far fa-calendar-alt"></i></div>
+                                    <!-- <div><i class="far fa-calendar-alt"></i></div> -->
+                                    <input id="endDate" width="200" />
                                 </div>
                             </div>
                             <div class="ml-5 coloumn-dp">
                                 <div>
                                     <div><p>Waktu Mulai</p></div>
-                                    <div><i class="far fa-clock"></i></div>
+                                    <div class="input-group" style="width:200px;">
+                                        <select id="inputState" class="form-control">
+                                            <option selected>9:00</option>
+                                            <option>10:00</option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="far fa-clock"></i></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <script>
+                            var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+                            $('#startDate').datepicker({
+                                uiLibrary: 'bootstrap4',
+                                iconsLibrary: 'fontawesome',
+                                minDate: today,
+                                maxDate: function () {
+                                    return $('#endDate').val();
+                                }
+                            });
+                            $('#endDate').datepicker({
+                                uiLibrary: 'bootstrap4',
+                                iconsLibrary: 'fontawesome',
+                                minDate: function () {
+                                    return $('#startDate').val();
+                                }
+                            });
+                        </script>
                     </div>
                     <div class="mt-3 p-3">
                         <a href="#" class="btn btn-primary">Cari Mobil</a>
@@ -73,13 +105,13 @@
             </div>
             <br>
             <div class="row">
-                @foreach($mobil as $mbl)
+
                 <div class="col-sm-12 col-md-4">
                     <div class="card shadow p-3 mb-5" id="cardmobil">
 						<div class="productinfo text-center">
-							<img src="/data_file/{{ $mbl->gambar }}" alt="" />
+							<img src="inter/image/mobil/brio.jpg" alt="" />
 							<div class="">
-                                <h5 class="">{{ $mbl->nama }}</h5>
+                                <h5 class="">Honda Brio</h5>
                                 <div class="d-flex justify-content-center">
                                     <span class="badge badge-pill badge-secondary align-self-center">Manual</span>
                                     <div class="ml-2">
@@ -91,7 +123,7 @@
 						</div>
                     </div>
                 </div>
-                @endforeach
+                
             </div>
         </div>
 
@@ -115,4 +147,22 @@
             </div>
         </div>
     </body>
+    <script>
+        var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+        $('#startDate').datepicker({
+            uiLibrary: 'bootstrap4',
+            iconsLibrary: 'fontawesome',
+            minDate: today,
+            maxDate: function () {
+                return $('#endDate').val();
+            }
+        });
+        $('#endDate').datepicker({
+            uiLibrary: 'bootstrap4',
+            iconsLibrary: 'fontawesome',
+            minDate: function () {
+                return $('#startDate').val();
+            }
+        });
+    </script>
 </html>

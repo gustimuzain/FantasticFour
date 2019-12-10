@@ -20,6 +20,7 @@ class Transaksi extends Migration
             $table->integer('tahun');
             $table->string('plat')->unique();
             $table->integer("kategori_id");
+            $table->string('gambar');
         });
         
     }
