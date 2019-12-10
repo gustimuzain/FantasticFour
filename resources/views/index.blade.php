@@ -73,12 +73,13 @@
             </div>
             <br>
             <div class="row">
+                @foreach($mobil as $mbl)
                 <div class="col-sm-12 col-md-4">
                     <div class="card shadow p-3 mb-5" id="cardmobil">
 						<div class="productinfo text-center">
-							<img src="inter/image/Mobil/brio.jpg" alt="" />
+							<img src="/data_file/{{ $mbl->gambar }}" alt="" />
 							<div class="">
-                                <h5 class="">Honda Brio</h5>
+                                <h5 class="">{{ $mbl->nama }}</h5>
                                 <div class="d-flex justify-content-center">
                                     <span class="badge badge-pill badge-secondary align-self-center">Manual</span>
                                     <div class="ml-2">
@@ -90,8 +91,10 @@
 						</div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
+
 
         <div class="footer">
             <div class="contain">
