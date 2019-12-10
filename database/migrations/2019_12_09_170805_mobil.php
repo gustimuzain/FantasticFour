@@ -13,13 +13,15 @@ class Transaksi extends Migration
      */
     public function up()
     {
-        Schema::create("tbl_transaksi", function(Blueprint $table){
-            $table->increments("id");
-            $table->decimal('total');
-            $table->integer("booking_id")->unsigned()->unique();
-
-            $table->foreign("booking_id")->references("id")->on("tbl_booking");
+        Schema::create("mobil", function(Blueprint $table){
+            $table->increments("mobil_id");
+            $table->string('nama');
+            $table->decimal('harga');
+            $table->integer('tahun');
+            $table->string('plat')->unique();
+            $table->integer("kategori_id");
         });
+        
     }
 
     /**

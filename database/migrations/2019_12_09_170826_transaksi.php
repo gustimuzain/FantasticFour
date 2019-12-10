@@ -13,11 +13,10 @@ class MobilKategori extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_kategori_mobil', function (Blueprint $table){
-            $table->increments('id');
-            $table->string('tipe');
-            $table->integer('jumlah');
-            $table->integer('bagasi');
+        Schema::create("transaksi", function(Blueprint $table){
+            $table->increments("transaksi_id");
+            $table->decimal('total');
+            $table->integer("booking_id");
         });
     }
 

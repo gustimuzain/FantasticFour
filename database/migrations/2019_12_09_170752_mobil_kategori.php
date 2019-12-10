@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class User extends Migration
+class Booking extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class User extends Migration
      */
     public function up()
     {
-        Schema::create('user', function (Blueprint $table){
-            $table->increments('user_id');
-            $table->string('nama');
-            $table->string('email', 320);
-            $table->string('no_hp', 20)->unique();
-            $table->string('password');
+        Schema::create('kategori_mobil', function (Blueprint $table){
+            $table->increments('kategori_id');
+            $table->string('tipe');
+            $table->integer('jumlah');
+            $table->integer('bagasi');
         });
+        
     }
 
     /**
