@@ -15,10 +15,10 @@ class MobilSeeder extends Seeder
         $mobil1 = new Mobil;
         $mobil1->mobil_id = "IM001";
         $mobil1->nama = "Honda Brio";
-        $mobil1->harga = "Honda Brio";
-        $mobil1->tahun = "Honda Brio";
-        $mobil1->plat = "Honda Brio";
-        $mobil1->kategori_id = "Honda Brio";
+        $mobil1->harga = "900000";
+        $mobil1->tahun = "2014";
+        $mobil1->plat = "HD3434";
+        $mobil1->kategori_id = "23";
         $mobil1->gambar = "Honda Brio";
         $mobil1->save();
     }
